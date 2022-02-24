@@ -1,6 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
+/**
+ * 以同步方式遍历，返回文件的列表
+ * @param {*} rootPath 
+ * @param {*} list 
+ * @returns 
+ */
 const traverseFolderList = (rootPath, list) => {
   const files = fs.readdirSync(rootPath);
 
