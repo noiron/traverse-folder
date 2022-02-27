@@ -21,7 +21,7 @@ jobs:
           github_file: traverseFolderList.js
       
       - uses: popsiclestick/gist-sync-action@v1.2.0
-        id: sync
+        id: sync1
         with:
           auth: ${{ secrets.GIST_TOKEN }}
           gist_url: https://gist.github.com/noiron/f6be6840739c7c0fc356659d64db96fc
