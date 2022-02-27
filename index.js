@@ -6,7 +6,7 @@ const { asyncTraverseFolderList } = require('./asyncTraverseFolderList');
 // 可以任选一个文件夹用于测试
 const folderPath = path.resolve(os.homedir(), 'code');
 
-function test1() {
+function testSync() {
   const list = [];
   const startTime = Date.now();
   traverseFolderList(folderPath, list);
@@ -16,7 +16,7 @@ function test1() {
   return duration;
 }
 
-async function test2() {
+async function testAsync() {
   const startTime = Date.now();
   const list = await asyncTraverseFolderList(folderPath);
   const endTime = Date.now();
@@ -35,6 +35,6 @@ async function runTest(fn, count) {
 
 (async function () {
   const COUNT = 10;
-  await runTest(test1, COUNT);
-  await runTest(test2, COUNT);
+  await runTest(testSync, COUNT);
+  await runTest(testAsync, COUNT);
 })();
