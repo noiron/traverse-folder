@@ -9,8 +9,9 @@ jobs:
     name: gist-sync
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Deploy to Gist
+        uses: actions/checkout@v2
+      
       - uses: exuanbo/actions-deploy-gist@v1.1.2
         with:
           token: ${{ secrets.GIST_TOKEN }}
