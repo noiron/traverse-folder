@@ -1,6 +1,6 @@
 const os = require('os');
 const path = require('path');
-const { asyncTraverseFolderList } = require('./asyncTraverFolderList');
+const { asyncTraverseFolderList } = require('./asyncTraverseFolderList');
 
 const folderPath = path.resolve(os.homedir(), 'code');
 
