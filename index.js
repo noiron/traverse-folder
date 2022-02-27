@@ -2,44 +2,36 @@ const os = require('os');
 const path = require('path');
 const { traverseFolderList } = require('./traverseFolderList');
 const { asyncTraverseFolderList } = require('./asyncTraverseFolderList');
-const { traverseFolderObj } = require('./traverseFolderObj');
 
 const folderPath = path.resolve(os.homedir(), 'code');
 
-(function () {
+function test1() {
   const list = [];
   const startTime = Date.now();
   traverseFolderList(folderPath, list);
   const endTime = Date.now();
   console.log(`共${list.length}个文件, 耗时${endTime - startTime}ms`);
-})();
+  return endTime - startTime;
+}
 
-(async function () {
-  const rootNode = {
-    path: folderPath,
-    type: 'folder',
-    children: [],
-    isRoot: true,
-  };
+let time1 = 0;
+for (let i = 0; i < 10; i++) {
+  time1 += test1();
+}
+console.log(`平均耗时：${time1 / 10}ms`);
 
-  const nodes = {
-    root: rootNode,
-  };
-
-  const startTime = Date.now();
-  const files = traverseFolderObj({
-    rootPath: folderPath,
-    folderRelativePath: './',
-    nodes,
-    parentNode: rootNode,
-  });
-  const endTime = Date.now();
-  console.log(`耗时${endTime - startTime}ms`);
-})();
-
-(async function () {
+async function test2() {
   const startTime = Date.now();
   const list = await asyncTraverseFolderList(folderPath);
   const endTime = Date.now();
   console.log(`共${list.length}个文件, 耗时${endTime - startTime}ms`);
+  return endTime - startTime;
+}
+
+(async function () {
+  let time2 = 0;
+  for (let i = 0; i < 10; i++) {
+    time2 += await test2();
+  }
+  console.log(`平均耗时：${time2 / 10}ms`);
 })();
