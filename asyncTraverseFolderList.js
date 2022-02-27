@@ -1,3 +1,4 @@
+/** 异步遍历 */
 const fs = require('fs');
 const path = require('path');
 const { readdir } = require('fs').promises;
