@@ -11,6 +11,7 @@ const traverseFolderList = (rootPath, list) => {
   const files = fs.readdirSync(rootPath);
 
 
+  
   files.forEach((file) => {
     const absolutePath = path.resolve(rootPath, file);
     const stats = fs.statSync(absolutePath);
