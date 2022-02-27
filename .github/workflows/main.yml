@@ -9,22 +9,21 @@ jobs:
     name: gist-sync
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: popsiclestick/gist-sync-action@v1.2.0
-        id: sync
+      - uses: actions/checkout@v2
+      - name: Deploy to Gist
+        uses: exuanbo/actions-deploy-gist@v1.1.2
         with:
-          auth: ${{ secrets.GIST_TOKEN }}
-          gist_url: https://gist.github.com/noiron/f6be6840739c7c0fc356659d64db96fc
-          gist_title: traverseFolderList.js
-          gist_description: traverseFolderList
-          github_file: traverseFolderList.js
+          token: ${{ secrets.GIST_TOKEN }}
+          gist_id: f6be6840739c7c0fc356659d64db96fc
+          gist_description: traverseFolder
+          gist_file_name: traverseFolderList.js
+          file_path: traverseFolderList.js
+
+        uses: exuanbo/actions-deploy-gist@v1.1.2
+        with:
+          token: ${{ secrets.GIST_TOKEN }}
+          gist_id: f6be6840739c7c0fc356659d64db96fc
+          gist_description: traverseFolder
+          gist_file_name: asyncTraverseFolderList.js
+          file_path: asyncTraverseFolderList.js
       
-      - uses: popsiclestick/gist-sync-action@v1.2.0
-        id: sync1
-        with:
-          auth: ${{ secrets.GIST_TOKEN }}
-          gist_url: https://gist.github.com/noiron/f6be6840739c7c0fc356659d64db96fc
-          gist_title: asyncTraverseFolderList.js
-          gist_description: asyncTraverseFolderList
-          github_file: asyncTraverseFolderList.js
