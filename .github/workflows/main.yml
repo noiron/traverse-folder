@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to Gist
-        uses: exuanbo/actions-deploy-gist@v1.1.2
+      - uses: exuanbo/actions-deploy-gist@v1.1.2
         with:
           token: ${{ secrets.GIST_TOKEN }}
           gist_id: f6be6840739c7c0fc356659d64db96fc
@@ -19,7 +19,7 @@ jobs:
           gist_file_name: traverseFolderList.js
           file_path: traverseFolderList.js
 
-        uses: exuanbo/actions-deploy-gist@v1.1.2
+      - uses: exuanbo/actions-deploy-gist@v1.1.2
         with:
           token: ${{ secrets.GIST_TOKEN }}
           gist_id: f6be6840739c7c0fc356659d64db96fc
