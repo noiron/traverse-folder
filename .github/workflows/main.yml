@@ -41,4 +41,12 @@ jobs:
           gist_id: f6be6840739c7c0fc356659d64db96fc
           gist_description: traverseFolder
           file_path: index.js
+
+      - uses: exuanbo/actions-deploy-gist@v1.1.2
+        with:
+          token: ${{ secrets.GIST_TOKEN }}
+          gist_id: f6be6840739c7c0fc356659d64db96fc
+          gist_description: traverseFolder
+          gist_file_name: main.yml
+          file_path: .github/workflows/main.yml
       
